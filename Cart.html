@@ -75,7 +75,20 @@
 
 
 
+<script>
+  document.getElementById("orderForm").addEventListener("submit", function(event) {
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
 
+    if (!email || !phone) {
+      alert("Email and phone number are required to place an order.");
+      event.preventDefault(); // stop form submission
+    }
+  });
+</script>
+
+
+  
 
 </body>
 </html>
@@ -101,6 +114,24 @@
     });
   }
 </script>
+
+
+
+<form id="orderForm" style="margin-top:20px; text-align:center;">
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" required 
+         placeholder="Enter your email" style="padding:8px; margin:10px;"><br>
+
+  <label for="phone">Phone Number:</label><br>
+  <input type="tel" id="phone" name="phone" required 
+         placeholder="Enter your phone number" style="padding:8px; margin:10px;"><br>
+
+  <button type="submit" style="padding:10px 20px; background:#e74c3c; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+    Place Order
+  </button>
+</form>
+
+
 
 
 
@@ -137,5 +168,6 @@
     rzp1.open();
   });
 </script>
+
 
 
