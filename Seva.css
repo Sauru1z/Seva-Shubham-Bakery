@@ -406,6 +406,42 @@ p {
   margin-bottom: 15px;
 }
 
+/* Text */
+.disclaimer-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #f5deb3;
+}
+
+/* Button */
+.disclaimer-box button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #e74c3c; /* red */
+  color: #fff; /* white text */
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.disclaimer-box button:hover {
+  background-color: #c0392b; /* darker red on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
 
 
 
