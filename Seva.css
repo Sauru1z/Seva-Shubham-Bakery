@@ -373,3 +373,41 @@ p {
 #proceed-btn:hover {
   background: #218838;
 }
+
+
+/* Disclaimer overlay */
+#disclaimer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Disclaimer box */
+.disclaimer-box {
+  background: #222;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  transform: scale(0.8);
+  animation: popUp 0.6s ease forwards;
+}
+
+/* Title */
+.disclaimer-box h2 {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
