@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - Seva Shubham Bakery</title>
+  <link rel="stylesheet" href="Seva.css">
+</head>
+<body class="cart-page">
+  <nav class="navbar">
+    <ul>
+      <li><a href="Seva.html">Home</a></li>
+      <li><a href="Menu.html">Menu</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+      <li class="cart-link"><a href="Cart.html">🛒 Your Cart</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1 class="rise-effect">Your Cart</h1>
+    <p class="rise-effect">Items you've selected will appear here.</p>
+  </header>
+
+ <div id="cart-items" class="cart-grid">
+  <!-- Cart items will be injected here -->
+</div>
+
+
+
+
+<script>
+  const cartContainer = document.getElementById('cart-items');
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function renderCart() {
+    cartContainer.innerHTML = '';
+
+    if (cart.length === 0) {
+      cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+       <p>Price: ${item.price}</p>
+       <p>Quantity: ${item.quantity}</p>
+
+        <p>Quantity: ${item.quantity}</p>
+        <button class="remove-btn" data-index="${index}">Remove</button>
+      `;
+      cartContainer.appendChild(card);
+    });
+
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const index = button.getAttribute('data-index');
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart(); // re-render after removal
+      });
+    });
+  }
+
+  renderCart();
+</script>
+
+
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+
+
+
+</body>
+</html>
+
+
+
+<script>
+  const cartContainer = document.getElementById('cart-items');
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+  } else {
+    cart.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <p>Quantity: ${item.quantity}</p>
+      `;
+      cartContainer.appendChild(card);
+    });
+  }
+</script>
+
+
+
+
+<div class="checkout">
+  <button id="proceed-btn">Proceed to Payment</button>
+</div>
+
+
+
+
+<script>
+  document.getElementById('proceed-btn').addEventListener('click', () => {
+    var options = {
+      "key": "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+      "amount": 50000, // Amount in paise (50000 = ₹500)
+      "currency": "INR",
+      "name": "Seva Shubham Bakery",
+      "description": "Order Payment",
+      "image": "logo.png", // optional logo
+      "handler": function (response){
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+      },
+      "prefill": {
+          "name": "Customer Name",
+          "email": "customer@example.com",
+          "contact": "9876543210"
+      },
+      "theme": {
+          "color": "#F37254"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+  });
+</script>
+

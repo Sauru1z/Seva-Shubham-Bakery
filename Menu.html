@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Seva Shubham Bakery</title>
+  <link rel="stylesheet" href="Seva.css">
+</head>
+<body class="menu-page">
+
+<body class="menu-page">
+  <nav class="navbar">
+    <ul>
+      <li><a href="Seva.html">Home</a></li>
+      <li><a href="Menu.html">Menu</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+
+
+<nav class="navbar">
+  <ul>
+    <li><a href="Seva.html">Home</a></li>
+    <li><a href="Menu.html">Menu</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+    <li class="cart-link"><a href="Cart.html">🛒 Your Cart</a></li>
+  </ul>
+</nav>
+
+
+
+  
+</body>
+
+
+  <header>
+    <h1 class="rise-effect">Our Menu</h1>
+    <p class="rise-effect">Delicious treats, baked fresh for you!</p>
+  </header>
+
+
+
+
+  <!-- Section 1 -->
+  <section class="menu-section cakes">
+
+
+    <h2>Cakes</h2>
+   
+
+  <div class="product-grid">
+
+
+
+<div class="product-card">
+  <img src="chocolate-cake.jpg" alt="Chocolate Cake">
+  <h3>Chocolate Cake</h3>
+<p class="price">₹200</p>
+<div class="quantity-control">
+
+    <button class="decrease">−</button>
+    <span class="quantity">1</span>
+    <button class="increase">+</button>
+  </div>
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+
+
+
+  <!-- Dish 2 -->
+  <div class="product-card">
+    <img src="vanilla-cake.jpg" alt="Vanilla Cake">
+    <h3>Vanilla Cake</h3>
+<p class="price">₹200</p>
+<div class="quantity-control">
+
+      <button class="decrease">−</button>
+      <span class="quantity">1</span>
+      <button class="increase">+</button>
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+  </div>
+
+  <!-- Dish 3 -->
+  <div class="product-card">
+    <img src="red-velvet-cake.jpg" alt="Red Velvet">
+   <h3>Red Velvet</h3>
+<p class="price">₹200</p>
+<div class="quantity-control">
+
+      <button class="decrease">−</button>
+      <span class="quantity">1</span>
+      <button class="increase">+</button>
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+  </div>
+
+  <!-- Dish 4 -->
+  <div class="product-card">
+    <img src="images/croissant.jpg" alt="Croissant">
+   <h3>Chocolate Cake</h3>
+<p class="price">₹200</p>
+<div class="quantity-control">
+
+      <button class="decrease">−</button>
+      <span class="quantity">1</span>
+      <button class="increase">+</button>
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+  </div>
+
+  <!-- Dish 5 -->
+  <div class="product-card">
+    <img src="images/puff-pastry.jpg" alt="Puff Pastry">
+   <h3>Chocolate Cake</h3>
+<p class="price">₹200</p>
+<div class="quantity-control">
+
+      <button class="decrease">−</button>
+      <span class="quantity">1</span>
+      <button class="increase">+</button>
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+  </div>
+
+  <!-- Dish 6 -->
+  <div class="product-card">
+    <img src="images/milkshake.jpg" alt="Milkshake">
+    <h3>Milkshake</h3>
+    <div class="quantity-control">
+      <button class="decrease">−</button>
+      <span class="quantity">1</span>
+      <button class="increase">+</button>
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+  </div>
+</div>
+
+
+
+  </section>
+
+  <!-- Section 2 -->
+  <section class="menu-section pastries">
+    <h2>Pastries</h2>
+    <p>Croissants, Danish, Puff Pastries, Cream Rolls...</p>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="menu-section beverages">
+    <h2>Beverages</h2>
+    <p>Coffee, Tea, Hot Chocolate, Milkshakes...</p>
+  </section>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  document.querySelectorAll('.product-card').forEach(card => {
+    const quantityDisplay = card.querySelector('.quantity');
+    let quantity = 1;
+
+    card.querySelector('.increase').addEventListener('click', () => {
+      quantity++;
+      quantityDisplay.textContent = quantity;
+    });
+
+    card.querySelector('.decrease').addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity--;
+        quantityDisplay.textContent = quantity;
+      }
+    });
+
+    card.querySelector('.add-to-cart').addEventListener('click', () => {
+      const itemName = card.querySelector('h3').textContent;
+const itemImage = card.querySelector('img').src;
+const itemPrice = card.querySelector('.price').textContent;
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+     cart.push({ name: itemName, quantity: quantity, image: itemImage, price: itemPrice });
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert(`${quantity} ${itemName}(s) added to cart!`);
+    });
+  });
+</script>
+
+
+
+
+</body>
+</html>

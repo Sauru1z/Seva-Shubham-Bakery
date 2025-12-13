@@ -1,0 +1,375 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  text-align: center;
+  background: url('cookies-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+header {
+  background: rgba(0, 0, 0, 0.5); /* soft overlay for readability */
+  padding: 80px 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ffd700; /* golden bakery vibe */
+}
+
+p {
+  font-size: 1.2rem;
+  color: #f5deb3; /* warm wheat tone */
+}
+
+
+
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(10px); /* blur effect */
+  background: rgba(255, 255, 255, 0.2); /* semi-transparent white */
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffd700; /* golden hover */
+}
+
+
+
+
+
+/* Menu page background */
+.menu-page {
+  background: url('cookies-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
+/* Contact page background */
+.contact-page {
+  background: url('cookies-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+/* Rise effect animation */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* start lower */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* rise to normal position */
+  }
+}
+
+.rise-effect {
+  animation: rise 1.2s ease-out forwards;
+}
+
+
+
+.menu-section {
+  min-height: 100vh; /* full screen height for each section */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 40px;
+}
+
+/* Different backgrounds for each section */
+.cakes {
+  background: url('') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.pastries {
+  background: url('images/pastries-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.beverages {
+  background: url('images/beverages-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+
+.product-card {
+  width: 220px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.quantity-control button {
+  background: #ffd700;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.quantity {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.add-to-cart {
+  background: #ff6f61;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background: #e85c50;
+}
+
+
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+
+
+.cart-link {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+.cart-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px;
+}
+
+.cart-grid .product-card {
+  width: 220px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.remove-btn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.remove-btn:hover {
+  background: #cc0000;
+}
+
+
+
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px;
+}
+
+.product-card {
+  width: 220px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 5px 0;
+}
+
+
+
+
+.contact-info {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 30px 0;
+}
+
+.contact-info a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #e85c50;
+}
+
+
+
+
+.checkout {
+  text-align: center;
+  margin: 30px 0;
+}
+
+#proceed-btn {
+  padding: 12px 25px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#proceed-btn:hover {
+  background: #218838;
+}
