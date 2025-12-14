@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart - Seva Shubham Bakery</title>
   <link rel="stylesheet" href="Seva.css">
+
+
+
+
+
+
 </head>
 <body class="cart-page">
   <nav class="navbar">
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="Seva.html">Home</a></li>
       <li><a href="Menu.html">Menu</a></li>
       <li><a href="Contact.html">Contact</a></li>
       <li class="cart-link"><a href="Cart.html">🛒 Your Cart</a></li>
@@ -75,20 +81,7 @@
 
 
 
-<script>
-  document.getElementById("orderForm").addEventListener("submit", function(event) {
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
 
-    if (!email || !phone) {
-      alert("Email and phone number are required to place an order.");
-      event.preventDefault(); // stop form submission
-    }
-  });
-</script>
-
-
-  
 
 </body>
 </html>
@@ -116,17 +109,19 @@
 </script>
 
 
-
+<!-- 🛒 Checkout Form -->
 <form id="orderForm" style="margin-top:20px; text-align:center;">
   <label for="email">Email:</label><br>
-  <input type="email" id="email" name="email" required 
-         placeholder="Enter your email" style="padding:8px; margin:10px;"><br>
+  <input type="email" id="email" name="email" required
+      placeholder="Enter your email" style="padding:8px; margin:10px;"><br>
 
   <label for="phone">Phone Number:</label><br>
-  <input type="tel" id="phone" name="phone" required 
-         placeholder="Enter your phone number" style="padding:8px; margin:10px;"><br>
+  <input type="tel" id="phone" name="phone" required
+      placeholder="Enter your phone number" style="padding:8px; margin:10px;"><br>
 
-
+  <label for="location">Location:</label><br>
+  <input type="text" id="location" name="location" required
+      placeholder="Enter your location" style="padding:8px; margin:10px;"><br>
 </form>
 
 
@@ -137,7 +132,6 @@
 <div class="checkout">
   <button id="proceed-btn">Proceed to Payment</button>
 </div>
-
 
 
  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -194,7 +188,5 @@
     });
   });
 </script>
-
-
 
 
