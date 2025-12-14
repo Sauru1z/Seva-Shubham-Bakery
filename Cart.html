@@ -140,41 +140,60 @@
 
 
 
+ <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
+  emailjs.init("Hple3XadZ-162DL5-"); // Replace with your actual EmailJS user ID
+
   document.getElementById('proceed-btn').addEventListener('click', () => {
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const location = document.getElementById('location').value.trim();
 
-    if (!email || !phone) {
-      alert("Please enter both email and phone number before proceeding to payment.");
+    if (!email || !phone || !location) {
+      alert("Please enter email, phone number and location before proceeding to payment.");
       return;
     }
 
-    var options = {
-      "key": "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
-      "amount": 50000, // Amount in paise (50000 = ₹500)
-      "currency": "INR",
-      "name": "Seva Shubham Bakery",
-      "description": "Order Payment",
-      "image": "logo.png", // optional logo
-      "handler": function (response) {
-        alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-      },
-      "prefill": {
-        "name": "Customer",
-        "email": email,
-        "contact": phone
-      },
-      "theme": {
-        "color": "#28a745" // green theme for Razorpay popup
-      }
-    };
+    // ✅ Send email via EmailJS
+    emailjs.send("service_yhfq3hg", "template_5wtax53", {
+      name: "Customer",
+      email: email,
+      phone: phone,
+      location: location
+    }).then(function(response) {
+      console.log("SUCCESS!", response.status, response.text);
+      alert("Your details have been sent to the bakery owner.");
 
-    var rzp = new Razorpay(options);
-    rzp.open();
+      // ✅ Razorpay payment flow (inside .then block)
+      var options = {
+        "key": "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay key
+        "amount": 50000, // ₹500.00 in paise
+        "currency": "INR",
+        "name": "Seva Shubham Bakery",
+        "description": "Order Payment",
+        "image": "logo.png",
+        "handler": function (response) {
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+          "email": email,
+          "contact": phone
+        },
+        "theme": {
+          "color": "#28a745"
+        }
+      };
+
+      var rzp = new Razorpay(options);
+      rzp.open();
+
+    }, function(error) {
+      console.log("FAILED...", error);
+      alert("There was an error sending your details. Please try again.");
+    });
   });
 </script>
-
 
 
 
