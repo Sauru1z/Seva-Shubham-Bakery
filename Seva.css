@@ -308,6 +308,21 @@ p {
 }
 
 
+.contact-info {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* translucent white */
+  backdrop-filter: blur(8px); /* blur effect */
+  border-radius: 12px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
 
 
 
@@ -417,6 +432,7 @@ p {
   display: block;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
+
 
 
 
