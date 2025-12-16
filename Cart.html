@@ -162,9 +162,9 @@
       // ✅ Razorpay payment flow (inside .then block)
       var options = {
         "key": "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay key
-        "amount": 50000, // ₹500.00 in paise
+        "amount": amountInPaise, // dynamically set
         "currency": "INR",
-        "name": "Seva Shubham Bakery",
+        "name": "Sewa Shubham Bakery",
         "description": "Order Payment",
         "image": "logo.png",
         "handler": function (response) {
@@ -188,6 +188,7 @@
     });
   });
 </script>
+
 
 
 
